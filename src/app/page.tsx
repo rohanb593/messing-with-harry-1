@@ -54,7 +54,7 @@ function TimeBlock({
   return (
     <div className="text-center">
       <div
-        className={`min-w-[6rem] px-6 py-6 text-5xl font-extrabold font-mono tabular-nums ${
+        className={`min-w-[4rem] px-3 py-4 text-3xl font-extrabold font-mono tabular-nums sm:min-w-[5rem] sm:px-4 sm:py-5 sm:text-4xl md:min-w-[6rem] md:px-6 md:py-6 md:text-5xl ${
           scary
             ? "rounded border border-red-600/50 bg-red-950/40 text-red-400 shadow-[inset_0_0_20px_rgba(0,0,0,0.3),0_0_20px_rgba(180,50,50,0.25)] animate-countdown-pulse"
             : "rounded-2xl border border-red-600/60 bg-black/80 text-red-500 shadow-[0_0_40px_rgba(220,38,38,0.9)]"
@@ -63,7 +63,7 @@ function TimeBlock({
         {padded}
       </div>
       <div
-        className={`mt-3 text-xs font-semibold uppercase tracking-[0.35em] ${
+        className={`mt-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] sm:mt-3 sm:text-xs sm:tracking-[0.35em] ${
           scary ? "text-red-300/80 font-mono" : "text-red-200/80"
         }`}
       >
@@ -110,7 +110,7 @@ export default function Home() {
 
   return (
     <main
-      className={`relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-4 font-sans ${
+      className={`relative flex min-h-[100dvh] min-h-screen flex-col items-center justify-center overflow-x-hidden overflow-y-auto px-4 py-6 font-sans sm:py-8 ${
         showEnded
           ? "bg-black text-red-100"
           : "bg-[#1c0f0f] text-red-100"
@@ -134,31 +134,31 @@ export default function Home() {
         </>
       )}
 
-      <section className="relative z-10 flex w-full max-w-5xl flex-col items-center gap-10 text-center">
-        <div className="space-y-4">
+      <section className="relative z-10 flex w-full max-w-5xl flex-1 flex-col items-center justify-center gap-6 text-center sm:gap-10">
+        <div className="space-y-2 sm:space-y-4">
           <p
-            className={`text-xs font-mono uppercase tracking-[0.3em] ${
+            className={`text-[10px] font-mono uppercase tracking-[0.2em] sm:text-xs sm:tracking-[0.3em] ${
               showEnded ? "text-red-300/70" : "text-red-300/80"
             }`}
           >
             Palantir interview
           </p>
           <h1
-            className={`text-4xl font-black uppercase tracking-[0.25em] sm:text-5xl md:text-6xl ${
+            className={`text-2xl font-black uppercase tracking-[0.15em] sm:text-4xl sm:tracking-[0.25em] md:text-5xl lg:text-6xl ${
               showEnded
                 ? "text-red-500 drop-shadow-[0_0_30px_rgba(248,113,113,0.9)]"
-                : "text-red-400 font-mono tracking-[0.4em] drop-shadow-[0_0_20px_rgba(180,50,50,0.4)]"
+                : "text-red-400 font-mono tracking-[0.2em] drop-shadow-[0_0_20px_rgba(180,50,50,0.4)] sm:tracking-[0.4em]"
             }`}
           >
             {showEnded ? "Countdown to 2:00 PM" : "Time remaining"}
           </h1>
           {!showEnded && (
-            <p className="mx-auto max-w-xl font-mono text-sm tracking-widest text-red-300/80">
+            <p className="mx-auto max-w-xl font-mono text-xs tracking-widest text-red-300/80 sm:text-sm">
               2:00 PM approaches
             </p>
           )}
           {showEnded && (
-            <p className="mx-auto max-w-xl text-sm text-red-100/70">
+            <p className="mx-auto max-w-xl px-1 text-sm text-red-100/70 sm:px-0">
               You&apos;ve got this.{" "}
               <span className="font-semibold text-red-400">Good luck!</span>
             </p>
@@ -166,42 +166,42 @@ export default function Home() {
         </div>
 
         {showEnded ? (
-          <div className="mt-6 flex flex-col items-center gap-8">
+          <div className="mt-4 flex flex-col items-center gap-4 sm:mt-6 sm:gap-8">
             {demoEnded && (
-              <p className="text-xs font-mono uppercase tracking-widest text-red-400/70">
+              <p className="text-[10px] font-mono uppercase tracking-widest text-red-400/70 sm:text-xs">
                 Demo — timer ended
               </p>
             )}
-            <p className="text-[10vw] font-black leading-tight tracking-tight text-red-500 drop-shadow-[0_0_40px_rgba(248,113,113,0.8)] sm:text-[7vw] md:text-[5vw]">
+            <p className="text-[clamp(2rem,12vw,5rem)] font-black leading-tight tracking-tight text-red-500 drop-shadow-[0_0_40px_rgba(248,113,113,0.8)]">
               Good luck!
             </p>
-            <p className="max-w-md text-lg font-medium text-red-100/90 sm:text-xl">
+            <p className="max-w-md px-2 text-base font-medium leading-snug text-red-100/90 sm:px-0 sm:text-lg md:text-xl">
               Time for your Palantir interview. Take a breath, trust your prep, and go show them what you&apos;ve got. You&apos;re going to do great.
             </p>
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-300/90">
+            <p className="text-xs font-semibold uppercase tracking-[0.15em] text-red-300/90 sm:text-sm sm:tracking-[0.2em]">
               You&apos;ve got this 💪
             </p>
           </div>
         ) : (
           <>
-            <div className="flex flex-col items-center gap-6">
-              <div className="flex items-end gap-4 text-5xl font-extrabold tracking-[0.35em] sm:text-6xl md:text-7xl">
+            <div className="flex flex-col items-center gap-4 sm:gap-6">
+              <div className="flex items-end gap-1.5 text-3xl font-extrabold tracking-[0.15em] sm:gap-4 sm:text-5xl sm:tracking-[0.35em] md:text-6xl lg:text-7xl">
                 <TimeBlock label="Hours" value={hours} scary />
-                <span className="pb-10 font-mono text-5xl text-red-400/70 sm:text-6xl md:text-7xl">
+                <span className="pb-8 font-mono text-3xl text-red-400/70 sm:pb-10 sm:text-5xl md:text-6xl lg:text-7xl">
                   :
                 </span>
                 <TimeBlock label="Minutes" value={minutes} scary />
-                <span className="pb-10 font-mono text-5xl text-red-400/70 sm:text-6xl md:text-7xl">
+                <span className="pb-8 font-mono text-3xl text-red-400/70 sm:pb-10 sm:text-5xl md:text-6xl lg:text-7xl">
                   :
                 </span>
                 <TimeBlock label="Seconds" value={seconds} scary />
               </div>
-              <p className="font-mono text-xs uppercase tracking-[0.4em] text-red-300/80">
+              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-red-300/80 sm:text-xs sm:tracking-[0.4em]">
                 2:00 PM • Local time
               </p>
             </div>
 
-            <p className="mt-4 font-mono text-sm tracking-wider text-red-300/80">
+            <p className="mt-3 font-mono text-xs tracking-wider text-red-300/80 sm:mt-4 sm:text-sm">
               Prepare yourself.
             </p>
           </>
